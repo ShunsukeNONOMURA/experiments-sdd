@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+*.log
+
+# Virtualenv & Poetry
+.venv/
+venv/
+.poetry/
+
+# IDEs & tooling
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+# .env.*
+*.env
+
+# Docker
+*.pid
+Dockerfile.*~
+
+# Alembic
+backend/migrations/versions/*.pyc
+backend/migrations/versions/__pycache__/

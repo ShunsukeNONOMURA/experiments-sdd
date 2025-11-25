@@ -1,0 +1,159 @@
+openapi: 3.0.3
+info:
+  title: User Management API
+  version: 0.1.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /users:
+    get:
+      summary: List users with pagination
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [active, inactive, all]
+            default: active
+      responses:
+        '200':
+          description: Paged list of users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserListResponse'
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: Created user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRead'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '409':
+          description: Duplicate email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /users/{userId}:
+    delete:
+      summary: Soft delete a user
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: User marked inactive
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    UserRead:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum: [admin, editor, viewer]
+        status:
+          type: string
+          enum: [active, inactive]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        traceId:
+          type: string
+          format: uuid
+      required: [userId, name, email, role, status, createdAt, updatedAt, traceId]
+    UserCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum: [admin, editor, viewer]
+      required: [name, email, role]
+    UserListResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRead'
+        totalCount:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        hasNext:
+          type: boolean
+        traceId:
+          type: string
+          format: uuid
+      required: [users, totalCount, page, pageSize, hasNext, traceId]
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+        traceId:
+          type: string
+          format: uuid
+      required: [message, code, traceId]
+  responses:
+    ValidationError:
+      description: Invalid payload
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'

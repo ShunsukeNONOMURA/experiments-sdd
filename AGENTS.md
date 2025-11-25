@@ -1,28 +1,30 @@
-# [PROJECT NAME] Development Guidelines
+# sdd-api Development Guidelines
 
-Auto-generated from all feature plans. Last updated: [DATE]
+Auto-generated from all feature plans. Last updated: 2025-11-25
 
 ## Active Technologies
 
-[EXTRACTED FROM ALL PLAN.MD FILES]
+- Python 3.12（Poetry管理） + FastAPI 0.115+, Pydantic v2, SQLAlchemy 2.x, Alembic, Uvicorn, httpx (001-user-management-api)
 
 ## Project Structure
 
 ```text
-[ACTUAL STRUCTURE FROM PLANS]
+backend/
+frontend/
+tests/
 ```
 
 ## Commands
 
-[ONLY COMMANDS FOR ACTIVE TECHNOLOGIES]
+cd src [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNOLOGIES] pytest [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNOLOGIES] ruff check .
 
 ## Code Style
 
-[LANGUAGE-SPECIFIC, ONLY FOR LANGUAGES IN USE]
+Python 3.12（Poetry管理）: Follow standard conventions
 
 ## Recent Changes
 
-[LAST 3 FEATURES AND WHAT THEY ADDED]
+- 001-user-management-api: Added Python 3.12（Poetry管理） + FastAPI 0.115+, Pydantic v2, SQLAlchemy 2.x, Alembic, Uvicorn, httpx
 
 <!-- MANUAL ADDITIONS START -->
 ## プロジェクト憲章
