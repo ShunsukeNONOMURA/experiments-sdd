@@ -4,8 +4,9 @@
 - [gh-pages](https://shunsukenonomura.github.io/experiments-sdd/)
 - [spec-kit](https://github.com/ShunsukeNONOMURA/experiments-sdd/tree/spec-kit)
 
-## 別ツール試行メモ
+## 操作メモ
 ```bash
+# 別ツール試行時
 git checkout main
 git pull origin main
 git checkout -b <新しいブランチ名>
