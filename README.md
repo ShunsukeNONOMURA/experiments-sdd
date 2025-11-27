@@ -3,7 +3,9 @@
 ## リンク
 - [gh-pages](https://shunsukenonomura.github.io/experiments-sdd/)
 - [spec-kit](https://github.com/ShunsukeNONOMURA/experiments-sdd/tree/spec-kit)
+    - ユーザ管理APIグリーン開発試用まで
 - [cc-sdd](https://github.com/ShunsukeNONOMURA/experiments-sdd/tree/cc-sdd)
+    - 予定：API開発ブラウン開発試用まで
 
 ## 操作メモ
 ```bash
