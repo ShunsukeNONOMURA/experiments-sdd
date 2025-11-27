@@ -12,4 +12,7 @@ git rm -r .
 # 初回push
 git push -u origin $(git branch --show-current) 
 git push
+# 削除
+git push origin --delete tmp
+git branch -D tmp
 ```
