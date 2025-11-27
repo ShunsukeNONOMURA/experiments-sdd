@@ -21,3 +21,7 @@ git push
 git push origin --delete tmp
 git branch -D tmp
 ```
+
+## 解決したい事柄
+- 仕様の曖昧性について記述箇所/成果物のレベルで明確化すること
+- 選定技術/設計方式に従った一貫性のある実装を自動化すること
