@@ -9,6 +9,9 @@
 
 ## 操作メモ
 ```bash
+# クローン
+BRANCH={ブランチ名}
+git clone -b $BRANCH https://github.com/ShunsukeNONOMURA/experiments-sdd.git experiments-sdd__$BRANCH
 # 別ツール試行時
 git checkout main
 git pull origin main
